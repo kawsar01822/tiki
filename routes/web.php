@@ -1,15 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\TicketController;
+use App\Http\Controllers\TripController;
+use App\Http\Controllers\SeatAllocationController;
 
-Route::get('/', [ProductController::class, 'index']);
-Route::get('/products', [ProductController::class, 'products']);
-Route::get('/create', [ProductController::class, 'create'])->name('create');
-Route::post('/store', [ProductController::class, 'store'])->name('store');
-Route::patch('/products/{id}/update-price', [ProductController::class, 'updatePrice'])->name('updatePrice');
-Route::get('/sell', [ProductController::class, 'sellForm']);
-Route::post('/sell/{id}/sell', [ProductController::class, 'sell'])->name('sell');
-Route::get('/transactions', [TransactionController::class, 'index']);
+Route::resource('trips', TripController::class);
+Route::get('trips/{trip}/allocate-seats', [TripController::class, 'allocateSeats'])->name('trips.allocate-seats');
+Route::post('trips/{trip}/allocate-seats', [TripController::class, 'storeSeatAllocation'])->name('trips.seat-allocations.store');
 
+Route::resource('tickets', TicketController::class);
+
+Route::resource('seat_allocations', SeatAllocationController::class);
