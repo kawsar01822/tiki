@@ -9,7 +9,6 @@ class SeatAllocationController extends Controller
     public function index()
     {
         $seatAllocations = SeatAllocation::with('trip.origin', 'trip.destination', 'trip.fare')->get();
-        return $seatAllocations;
-        // return view('seat_allocations.index', compact('seatAllocations'));
+        return view('seat_allocations.index', compact('seatAllocations'));
     }
 }
