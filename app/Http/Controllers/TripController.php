@@ -5,10 +5,28 @@ use App\Models\Trip;
 use App\Models\Location;
 use App\Models\SeatAllocation;
 use App\Models\Fare;
+use App\Models\Ticket;
 use Illuminate\Http\Request;
 
 class TripController extends Controller
 {
+    public function dashboard()
+    {
+
+        // Query to get today's ticket sales amount
+        $todaysAmount = Ticket::whereDate('created_at', now())->sum('fare');
+        $yesterdayAmount = Ticket::whereDate('created_at', now()->subDay())->sum('fare');
+
+        $firstDayOfMonth = date('Y-m-01 00:00:00');
+        $lastDayOfMonth = date('Y-m-t 23:59:59');
+        $thisMonthAmount = Ticket::whereBetween('created_at', [$firstDayOfMonth, $lastDayOfMonth])->sum('fare');
+
+        $firstDayOfLastMonth = date('Y-m-d', strtotime('first day of last month')) . ' 00:00:00';
+        $lastDayOfLastMonth = date('Y-m-d', strtotime('last day of last month')) . ' 23:59:59';
+        $lastMonthAmount = Ticket::whereBetween('created_at', [$firstDayOfLastMonth, $lastDayOfLastMonth])->sum('fare');
+
+        return view('home',compact('todaysAmount','yesterdayAmount','thisMonthAmount','lastMonthAmount'));
+    }
     public function create()
     {
         $locations = Location::all();

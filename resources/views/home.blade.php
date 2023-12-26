@@ -36,7 +36,7 @@
 										<div class="summary">
 											<h4 class="title">Today</h4>
 											<div class="info">
-												<strong class="amount">{{$todaySales}}</strong>
+												<strong class="amount">{{$todaysAmount}} TK</strong>
 											</div>
 										</div>
 									</div>
@@ -57,7 +57,7 @@
 										<div class="summary">
 											<h4 class="title">Yesterday</h4>
 											<div class="info">
-												<strong class="amount">{{$yesterdaySales}}</strong>
+												<strong class="amount">{{$yesterdayAmount}} TK</strong>
 											</div>
 										</div>
 									</div>
@@ -78,7 +78,7 @@
 										<div class="summary">
 											<h4 class="title">This Month</h4>
 											<div class="info">
-												<strong class="amount">{{$thisMonthSales}}</strong>
+												<strong class="amount">{{$thisMonthAmount}} TK</strong>
 											</div>
 										</div>
 									</div>
@@ -99,7 +99,7 @@
 										<div class="summary">
 											<h4 class="title">Last Month</h4>
 											<div class="info">
-												<strong class="amount">{{$lastMonthSales}}</strong>
+												<strong class="amount">{{$lastMonthAmount}} TK</strong>
 											</div>
 										</div>
 									</div>

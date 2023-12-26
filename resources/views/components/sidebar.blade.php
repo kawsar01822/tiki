@@ -23,30 +23,23 @@
             </li>
 
             <li class="nav-active">
-              <a href="{{url('/products')}}">
+              <a href="{{url('/trips')}}">
                 <i class="fa fa-list" aria-hidden="true"></i>
-                <span>Product List</span>
+                <span>Trip List</span>
               </a>
             </li>
 
             <li class="nav-active">
-              <a href="{{url('/create')}}">
+              <a href="{{url('/tickets')}}">
                 <i class="fa fa-plus" aria-hidden="true"></i>
-                <span>Add Product</span>
+                <span>Tickets</span>
               </a>
             </li>
 
             <li class="nav-active">
-              <a href="{{url('/sell')}}">
+              <a href="{{url('/seat_allocations')}}">
                 <i class="fa fa-minus" aria-hidden="true"></i>
-                <span>Sell Product</span>
-              </a>
-            </li>
-
-            <li class="nav-active">
-              <a href="{{url('/transactions')}}">
-                <i class="fa fa-list-alt"></i>
-                <span>Transactions</span>
+                <span>Seat Allocation</span>
               </a>
             </li>
 
